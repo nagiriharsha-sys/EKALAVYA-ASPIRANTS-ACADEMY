@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam - Ekalavya Aspirants</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
+        header { background: #1e3a8a; color: white; padding: 20px; text-align: center; }
+        nav { display: flex; justify-content: center; background: #3b82f6; padding: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; font-weight: bold; }
+        nav a:hover { background: #1d4ed8; border-radius: 4px; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .question { margin-bottom: 20px; font-weight: bold; }
+        .options label { display: block; margin: 8px 0; cursor: pointer; }
+        .btn { background: #2563eb; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .btn:hover { background: #1d4ed8; }
+        #result { margin-top: 20px; font-size: 1.2em; font-weight: bold; color: #16a34a; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ఆన్‌లైన్ పరీక్ష (Online Mock Test)</h1>
+    </header>
+    <nav>
+        <a href="index.html">హోమ్ (Home)</a>
+        <a href="exam.html">ఆన్‌లైన్ ఎగ్జామ్ (Online Exam)</a>
+        <a href="materials.html">ఉచిత మెటీరియల్స్ (Free PDFs)</a>
+        <a href="paid-materials.html">ప్రీమియం మెటీరియల్స్ (Paid E-Books)</a>
+    </nav>
+    <div class="container">
+        <form id="quizForm">
+            <div class="question">
+                <p>1. తెలంగాణ సాయుధ పోరాటం ఎప్పుడు ముగిసింది?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="wrong"> ఎ) 1947</label>
+                    <label><input type="radio" name="q1" value="correct"> బి) 1951</label>
+                    <label><input type="radio" name="q1" value="wrong"> సి) 1956</label>
+                    <label><input type="radio" name="q1" value="wrong"> డి) 1948</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. భారత రాజ్యాంగంలో ఏ భాగం ప్రాథమిక హక్కులను వివరిస్తుంది?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="wrong"> ఎ) భాగం II</label>
+                    <label><input type="radio" name="q2" value="correct"> బి) భాగం III</label>
+                    <label><input type="radio" name="q2" value="wrong"> సి) భాగం IV</label>
+                    <label><input type="radio" name="q2" value="wrong"> డి) భాగం V</label>
+                </div>
+            </div>
+            <button type="button" class="btn" onclick="submitQuiz()">సబ్మిట్ చేయండి (Submit)</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        function submitQuiz() {
+            let score = 0;
+            let total = 2;
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            let q2 = document.querySelector('input[name="q2"]:checked');
+            if (q1 && q1.value === "correct") score++;
+            if (q2 && q2.value === "correct") score++;
+            document.getElementById("result").innerText = `మీ స్కోర్: ${score} / ${total}`;
+        }
+    </script>
+</body>
+</html>

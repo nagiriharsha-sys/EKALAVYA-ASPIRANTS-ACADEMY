@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Ekalavya Aspirants</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
+        header { background: #1e3a8a; color: white; padding: 20px; text-align: center; }
+        nav { display: flex; justify-content: center; background: #3b82f6; padding: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; font-weight: bold; }
+        nav a:hover { background: #1d4ed8; border-radius: 4px; }
+        .container { max-width: 600px; margin: 30px auto; padding: 25px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        .qr-box { margin: 20px 0; }
+        .qr-box img { width: 200px; height: 200px; border: 2px solid #ddd; padding: 5px; border-radius: 8px; }
+        .upi-id { background: #f1f5f9; padding: 10px; border-radius: 5px; font-size: 1.1em; font-weight: bold; color: #2563eb; margin: 10px 0; display: inline-block; border: 1px dashed #cbd5e1; }
+        .whatsapp-btn { background: #16a34a; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 15px; font-size: 1.1em; }
+        .whatsapp-btn:hover { background: #15803d; }
+        .instructions { background: #fef08a; padding: 15px; border-radius: 5px; text-align: left; margin-top: 20px; font-size: 0.95em; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>సురక్షిత చెల్లింపు (Secure Checkout)</h1>
+    </header>
+    <nav>
+        <a href="index.html">హోమ్ (Home)</a>
+        <a href="exam.html">ఆన్‌లైన్ ఎగ్జామ్ (Online Exam)</a>
+        <a href="materials.html">ఉచిత మెటీరియల్స్ (Free PDFs)</a>
+        <a href="paid-materials.html">ప్రీమియం మెటీరియల్స్ (Paid E-Books)</a>
+    </nav>
+    <div class="container">
+        <h2 id="productTitle">ప్రీమియం మెటీరియల్ కొనుగోలు</h2>
+        <p id="productPrice" style="font-size: 1.2em; color: #16a34a; font-weight: bold;"></p>
+        <div class="qr-box">
+            <p>క్రింది QR కోడ్ ని స్కాన్ చేయండి లేదా నేరుగా UPI ID కి పే చేయండి:</p>
+            <img src="images/qr-code.jpg" alt="Payment QR Code">
+            <div class="upi-id">UPI ID: arunkumar6403@ptaxis</div>
+        </div>
+        <div class="instructions">
+            <strong>ముఖ్య గమనిక:</strong>
+            <ol>
+                <li>పేమెంట్ విజయవంతం అయిన తర్వాత ఆ స్క్రీన్‌షాట్‌ను కింద ఉన్న వాట్సాప్ బటన్ ద్వారా మాకు పంపండి.</li>
+                <li>మా టీమ్ మీ చెల్లింపును పరిశీలించి, తక్షణమే PDF లింక్‌ను మీకు వాట్సాప్‌లో పంపుతారు.</li>
+            </ol>
+        </div>
+        <a id="whatsappLink" href="#" class="whatsapp-btn" target="_blank">పేమెంట్ స్క్రీన్‌షాట్ వాట్సాప్‌కి పంపండి</a>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const item = urlParams.get('item');
+        const price = urlParams.get('price');
+        
+        let title = "ప్రీమియం మెటీరియల్ E-Book";
+        if(item === '1500mcqs') {
+            title = "1500 MCQs Master Series";
+        } else if(item === 'ts_history') {
+            title = "తెలంగాణ చరిత్ర & సంస్కృతి గ్రాండ్ టెస్ట్ సిరీస్";
+        }
+        
+        if(item && price) {
+            document.getElementById('productTitle').innerText = title;
+            document.getElementById('productPrice').innerText = `చెల్లించవలసిన మొత్తం: ₹${price}/-`;
+        }
+
+        // WhatsApp number and dynamic message configuration
+        const phoneNumber = "919391749914";
+        const message = `సార్, నేను ${title} కోసం ₹${price || '199'}/- పేమెంట్ చేశాను (UPI: arunkumar6403@ptaxis). దయచేసి మెటీరియల్ PDF పంపగలరు. (స్క్రీన్‌షాట్ జతచేయబడింది)`;
+        document.getElementById('whatsappLink').href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    </script>
+</body>
+</html>
