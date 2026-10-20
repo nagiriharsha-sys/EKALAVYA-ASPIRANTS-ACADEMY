@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: nagiriharsha-sys/EKALAVYA-ASPIRANTS-ACADEMY
   branch: main
 
 media_folder: "images"
