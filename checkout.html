@@ -46,7 +46,32 @@
         </div>
         <a id="whatsappLink" href="#" class="whatsapp-btn" target="_blank">పేమెంట్ స్క్రీన్‌షాట్ వాట్సాప్‌కి పంపండి</a>
     </div>
-    <script>
+    <!-- Student Details Form -->
+<div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-top: 20px; max-width: 400px; margin-left: auto; margin-right: auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="color: #333; font-size: 18px; margin-bottom: 15px; text-align: center;">పేమెంట్ వివరాలు సమర్పించండి</h3>
+    
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <!-- ఇక్కడ మీ ఫ్రీ యాక్సెస్ కీ ఇస్తాను -->
+        <input type="hidden" name="apikey" value="YOUR_ACCESS_KEY_HERE">
+        
+        <div style="margin-bottom: 12px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">మీ పూర్తి పేరు (Full Name)</label>
+            <input type="text" name="name" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">వాట్సాప్ నంబర్ (WhatsApp Number)</label>
+            <input type="tel" name="phone" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">ఈమెయిల్ (Email)</label>
+            <input type="email" name="email" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        
+        <button type="submit" style="width: 100%; background: #28a745; color: white; border: none; padding: 10px; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer;">డెంటైల్స్ సబ్మిట్ చేయండి</button>
+    </form>
+</div><script>
         const urlParams = new URLSearchParams(window.location.search);
         const item = urlParams.get('item');
         const price = urlParams.get('price');
